@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('state',45)->nullable();
             $table->string('zipcode',45);
             $table->string('country_code',3);
+            $table->foreign('country_code')->references('code')->on('countries');
             $table->foreignId('customer_id')->references('id')->on('customers');
-            $table->foreignId('country_id')->references('id')->on('countries');
             $table->timestamps();
         });
     }
