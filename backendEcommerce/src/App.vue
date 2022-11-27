@@ -3,7 +3,9 @@
 </script>
 
 <template>
-<router-view></router-view>
+  <div class="main w-full absolute top-0 right-0">
+    <router-view></router-view>
+  </div>
 </template>
 
 <style scoped>

@@ -1,5 +1,5 @@
 <template>
-          <GuestLayout title="Set New Password">
+          <GuestLayout title="Set New Password">{{ route.params.token }}
             <form class="mt-8 space-y-6" action="#" method="POST">
                 <input type="hidden" name="remember" value="true" />
                 <div class="-space-y-px rounded-md shadow-sm">
@@ -22,7 +22,8 @@
     </template>
     
     <script setup>
+    import {useRoute} from "vue-router"
     import { LockClosedIcon } from '@heroicons/vue/20/solid'
     import GuestLayout from '../components/GuestLayout.vue'
-
+    const route = useRoute();
     </script>
