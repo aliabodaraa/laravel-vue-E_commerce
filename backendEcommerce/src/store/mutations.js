@@ -1,26 +1,95 @@
-export function setUser(state, resData) {
-    state.user.data = resData;
+
+export function setUser(state, user) {
+  state.user.data = user;
 }
+
 export function setToken(state, token) {
-    state.user.token = token;
-    if (token) { //for login
-        sessionStorage.setItem('Token', token);
-    } else { //for logout
-        sessionStorage.removeItem('Token');
-    }
-    console.log(token, state.user.token);
+  state.user.token = token;
+  if (token) {
+    sessionStorage.setItem('TOKEN', token);
+  } else {
+    sessionStorage.removeItem('TOKEN')
+  }
 }
-// export function logout(state) {
-//     console.log("aloshe logout");
-//     state.user.data = {};
-//     state.user.token = null;
-//     console.log(sessionStorage.getItem('Token'));
-// }
-export function notify(state, { message, type }) {
-    state.notification.show = true;
-    state.notification.type = type;
-    state.notification.message = message;
-    setTimeout(() => {
-        state.notification.show = false;
-    }, 4000);
+
+export function setProducts(state, [loading, data = null]) {
+
+  if (data) {
+    state.products = {
+      ...state.products,
+      data: data.data,
+      links: data.meta?.links,
+      page: data.meta.current_page,
+      limit: data.meta.per_page,
+      from: data.meta.from,
+      to: data.meta.to,
+      total: data.meta.total,
+    }
+  }
+  state.products.loading = loading;
+}
+
+export function setUsers(state, [loading, data = null]) {
+
+  if (data) {
+    state.users = {
+      ...state.users,
+      data: data.data,
+      links: data.meta?.links,
+      page: data.meta.current_page,
+      limit: data.meta.per_page,
+      from: data.meta.from,
+      to: data.meta.to,
+      total: data.meta.total,
+    }
+  }
+  state.products.loading = loading;
+}
+
+export function setCustomers(state, [loading, data = null]) {
+
+  if (data) {
+    state.customers = {
+      ...state.customers,
+      data: data.data,
+      links: data.meta?.links,
+      page: data.meta.current_page,
+      limit: data.meta.per_page,
+      from: data.meta.from,
+      to: data.meta.to,
+      total: data.meta.total,
+    }
+  }
+  state.products.loading = loading;
+}
+
+export function setOrders(state, [loading, data = null]) {
+
+  if (data) {
+    state.orders = {
+      ...state.orders,
+      data: data.data,
+      links: data.meta?.links,
+      page: data.meta.current_page,
+      limit: data.meta.per_page,
+      from: data.meta.from,
+      to: data.meta.to,
+      total: data.meta.total,
+    }
+  }
+  state.orders.loading = loading;
+}
+
+export function showToast(state, message) {
+  state.toast.show = true;
+  state.toast.message = message;
+}
+
+export function hideToast(state) {
+  state.toast.show = false;
+  state.toast.message = '';
+}
+
+export function setCountries(state, countries) {
+  state.countries = countries.data;
 }

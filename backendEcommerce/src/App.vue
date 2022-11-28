@@ -3,10 +3,8 @@
 </script>
 
 <template>
-  <div class="main w-full absolute top-0 right-0">
-    <router-view></router-view>
-  </div>
+  <router-view></router-view>
 </template>
 
-<style scoped>
+<style>
 </style>

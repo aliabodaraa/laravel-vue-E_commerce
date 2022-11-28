@@ -1,0 +1,23 @@
+{
+  "hash": "0f032265",
+  "browserHash": "50a232e2",
+  "optimized": {
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "11b859c7",
+      "needsInterop": false
+    },
+    "lodash": {
+      "src": "../../node_modules/lodash/lodash.js",
+      "file": "lodash.js",
+      "fileHash": "9bf90e9d",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-TWLJ45QX": {
+      "file": "chunk-TWLJ45QX.js"
+    }
+  }
+}
